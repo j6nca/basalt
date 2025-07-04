@@ -1,0 +1,61 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "America/Toronto",
+  "rebaseWhen": "conflicted",
+  "commitBodyTable": true,
+  "printConfig": true,
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "enabledManagers": [
+    "docker-compose"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "commitMessageTopic": "docker {{depName}}",
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "docker",
+      "bumpVersion": "patch",
+      "addLabels": [
+        "docker"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "addLabels": [
+        "major"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "addLabels": [
+        "minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "addLabels": [
+        "patch"
+      ]
+    }
+  ],
+  "labels": [
+    "renovate"
+  ]
+}
